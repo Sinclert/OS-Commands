@@ -8,36 +8,70 @@
 
 int main(int argc, char *argv[]){
 
-	/* If less than four arguments (argv[0] -> program, argv[1] -> number of bytes to display, argv[2] -> input file, argv[3] ->  output file) print an error y return -1 */
+	// Check arguments introduced by the user (argv[0] -> program, argv[1] -> number of bytes, argv[2] -> input file, argv[3] ->  output file)
 	if (argc != 4){
 	    printf("Invalid number of arguments\n");
-	    printf("\t%s <N> <file1> <file2>\n", argv[0]);		
+	    printf("\t%s <N> <file1> <file2>\n", argv[0]);
 	    return -1;
 	}
+	int size = atoi(argv[1]);
 
-	int filDes = open(argv[2], O_RDONLY);
-	int filDes2 = open(argv[3], O_WRONLY);
-
-	if (filDes2 == -1){
-		creat("Second.txt", O_WRONLY);
-		filDes2 = open("Second.txt", O_WRONLY);
+	// Checking that the number of bits is correct
+	if (size < 1){
+		perror("The number of bits has to be at least 1");
+		return -1;
 	}
 
-	int i = 0, control = 1;
-	int size = atoi(argv[1]);
+
+	// Gives to both open files an identifier descriptor
+	int filDes = open(argv[2], O_RDONLY);
+	int filDes2 = open(argv[3], O_CREAT|O_TRUNC|O_WRONLY);
+
+	// Checking if there is any error in the open operations
+	if (filDes == -1 || filDes2 == -1){
+		perror("The file can not be opened");
+		return -1;
+	}
+
+	int i = 0, control = 1, write_error;
 	char buffer[1];
 
+
+	// While variable "i" continues being less than size, it writes in the second file
 	while (i < size){
-		control = read (filDes, buffer, 1);
-		if (control == 0){
+		control = read(filDes, buffer, 1);
+
+		// Checking if there is any error in the read operation
+		if (control == -1){
+			perror("The file can not be read");
+			return -1;
+		}
+
+		// The end of the file is reached
+		else if (control == 0){
 			break;
 		}
-		write (filDes2, buffer, 1);
+
+		write_error = write (filDes2, buffer, 1);
+
+		// Checking if there is any error in the write operations
+		if (write_error == -1){
+			perror("The file can not be written");
+			return -1;
+		}
+
 		i++;
 	}
 
-	close(filDes);
-	close(filDes2);
+
+	int close_error = close(filDes);
+	int close_error2 = close(filDes2);
+
+	// Checking if there is an error in any close operation
+	if (close_error == -1 || close_error2 == -1){
+		perror("The file can not be closed");
+		return -1;
+	}
 
 	return 0;
 }
