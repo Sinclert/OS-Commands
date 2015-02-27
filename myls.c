@@ -12,7 +12,7 @@ int main(int argc, char *argv[]){
 
 
 	// Cheking if the directory can be opened
-	DIR * myDirectory = opendir(argv[i]);
+	DIR * myDirectory = opendir(argv[1]);
 	if (myDirectory == NULL){
 		perror("Cannot open the directory");
 		return -1;
