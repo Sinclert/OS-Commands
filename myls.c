@@ -25,6 +25,7 @@ int main(int argc, char *argv[]){
 		// Cheking if the directory can be read
 		if (entry == NULL){
 			perror("Cannot read the directory");
+			closedir(myDirectory);
 			return -1;
 		}
 

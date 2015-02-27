@@ -36,6 +36,8 @@ int main(int argc, char * argv[]){
 		// Checking if there is any error in the read operations
 		if (control == -1 || control2 == -1){
 			perror("The file can not be read");
+			close(filDes);
+			close(filDes2);
 			return -1;
 		}
 

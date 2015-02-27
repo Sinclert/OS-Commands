@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
 
 	// Gives to both open files an identifier descriptor
 	int filDes = open(argv[2], O_RDONLY);
-	int filDes2 = open(argv[3], O_CREAT|O_TRUNC|O_WRONLY);
+	int filDes2 = open(argv[3], O_CREAT|O_TRUNC|O_WRONLY, 0666);
 
 	// Checking if there is any error in the open operations
 	if (filDes == -1 || filDes2 == -1){
@@ -33,22 +33,24 @@ int main(int argc, char *argv[]){
 		return -1;
 	}
 
-	int i = 0, control = 1, write_error;
+	int i = 0, read_error, write_error;
 	char buffer[1];
 
 
 	// While variable "i" continues being less than size, it writes in the second file
 	while (i < size){
-		control = read(filDes, buffer, 1);
+		read_error = read(filDes, buffer, 1);
 
 		// Checking if there is any error in the read operation
-		if (control == -1){
+		if (read_error == -1){
 			perror("The file can not be read");
+			close(filDes);
+			close(filDes2);
 			return -1;
 		}
 
 		// The end of the file is reached
-		else if (control == 0){
+		else if (read_error == 0){
 			break;
 		}
 
