@@ -17,7 +17,7 @@ int main(int argc, char *argv[]){
 		DIR * myDirectory = opendir(argv[i]);
 		if (myDirectory == NULL){
 			perror("Cannot open the directory");
-			return -1;									// Here if we put "continue", it will works as the real ls :D
+			return -1;
 		}
 
 		struct dirent * entry = readdir(myDirectory);
