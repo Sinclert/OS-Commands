@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <dirent.h>
 #include <sys/types.h>
+#include <errno.h>
 
 int main(int argc, char *argv[]){
 
 	// Check arguments introduced by the user (argv[0] -> program, argv[1] -> directory to search)
-	if (argc < 2){
+	if (argc != 2){
 		printf("Too few arguments\n");
         return -1;
 	}
@@ -18,10 +19,11 @@ int main(int argc, char *argv[]){
 		return -1;
 	}
 
+	errno = 0;
 	struct dirent * entry = readdir(myDirectory);
 
 	// Cheking if the directory can be read
-	if (entry == NULL){
+	if (errno != 0){
 		perror("Cannot read the directory");
 		closedir(myDirectory);
 		return -1;

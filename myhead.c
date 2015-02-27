@@ -22,6 +22,10 @@ int main(int argc, char *argv[]){
 	}
 
 
+	// THIS LINE IS IMPORTANT: Thanks to it we can give write permissions to the group and others
+	umask(0);
+
+
 	// Gives to both open files an identifier descriptor
 	int filDes = open(argv[2], O_RDONLY);
 	int filDes2 = open(argv[3], O_CREAT|O_TRUNC|O_WRONLY, 0666);
