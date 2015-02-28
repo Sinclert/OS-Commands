@@ -62,6 +62,8 @@ int main(int argc, char *argv[]){
 		// Checking if there is any error in the write operations
 		if (write_error == -1){
 			perror("The file can not be written");
+			close(filDes);
+			close(filDes2);
 			return -1;
 		}
 
