@@ -12,7 +12,7 @@ int main(int argc, char *argv[]){
 	}
 
 	// In our implementation the user can introduce more than one directory
-	int i;
+	int i, close_error, myErrno;
 	for (i = 1 ; i < argc ; i++){
 
 		// Cheking if the directory can be opened
@@ -22,11 +22,11 @@ int main(int argc, char *argv[]){
 			return -1;
 		}
 
-		errno = 0;
+		myErrno = errno;
 		struct dirent * entry = readdir(myDirectory);
 
 		// Cheking if the directory can be read
-		if (errno != 0){
+		if (myErrno != errno){
 			perror("Cannot read the directory");
 			closedir(myDirectory);
 			return -1;
@@ -40,7 +40,7 @@ int main(int argc, char *argv[]){
 			}
 		}
 
-		int close_error = closedir(myDirectory);
+		close_error = closedir(myDirectory);
 
 		// Cheking if the directory can be closed
 		if (close_error == -1){
