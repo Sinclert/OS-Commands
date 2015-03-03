@@ -36,7 +36,15 @@ int main(int argc, char *argv[]){
 		else {
 			while (entry != NULL){
 				printf("%s\n", entry -> d_name);
+				
+				myErrno = errno;
 				entry = readdir(myDirectory);
+
+				if (myErrno != errno){
+					perror("Cannot read the directory");
+					closedir(myDirectory);
+					return -1;
+				}
 			}
 		}
 
