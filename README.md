@@ -12,7 +12,7 @@ $ Make
 ```
 
 #### 2. mydiff:
-File that implements a function which compares 2 existing files and determine if they are equal or not. The output could be: "The files <i>file1</i> and <i>file2</i> are equal" or "The files <i>file1</i> and <i>file2</i> are different". <b>It works with any type of file: PNG, MP3...</b>
+File that implements a function which compares 2 existing files and determine if they are equal or not. The possible outputs are: "The files <i>file1</i> and <i>file2</i> are equal" or "The files <i>file1</i> and <i>file2</i> are different". <b>It works with any type of file: PNG, MP3...</b>
 
 ##### How does it work?
 ```shell
