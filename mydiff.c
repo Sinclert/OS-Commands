@@ -43,7 +43,7 @@ int main(int argc, char * argv[]){
 
 		// In the case in a determined position both characters are differents, it exits
 		if (buffer[0] != buffer2[0]){
-			printf("Los ficheros %s y %s son distintos\n",argv[1],argv[2]);
+			printf("The files %s and %s are different\n",argv[1],argv[2]);
 			close_error = close(filDes);
 			close_error2 = close(filDes2);
 
@@ -60,7 +60,7 @@ int main(int argc, char * argv[]){
 
 	// If all the characters are the same and the end of both files is reached, they are equal
 	if (control == 0 && control2 == 0){
-		printf("Los ficheros %s y %s son identicos\n",argv[1],argv[2]);
+		printf("The files %s and %s are equal\n",argv[1],argv[2]);
 		close_error = close(filDes);
 		close_error2 = close(filDes2);
 
@@ -75,7 +75,7 @@ int main(int argc, char * argv[]){
 
 	// Finally, if the end of a file is reached before the other's file end, they are different
 	else {
-		printf("Los ficheros %s y %s son distintos\n",argv[1],argv[2]);
+		printf("The files %s and %s are different\n",argv[1],argv[2]);
 		close_error = close(filDes);
 		close_error2 = close(filDes2);
 
