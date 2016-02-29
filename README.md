@@ -20,7 +20,7 @@ $ mydiff <file1> <file2>
 ```
 
 #### 3. myhead:
-File that implements a function which copy the first "n" bytes of a file into a new one. The number of bytes can be specified. The first specified file is the source and the second one is the destination one. <b>In case that the second file does not exist, it will be created.</b>.
+File that implements a function which copy the first "n" bytes of a file into a new one. The number of bytes can be specified. The first specified file is the source and the second one is the destination one. <b>In case that the second file does not exist, it will be created.</b>
 
 ##### How does it work?
 ```shell
