@@ -24,7 +24,7 @@ File that implements a function which compares 2 existing files and determine if
 
 ##### How does it work?
 ```shell
-$ mydiff <file1> <file2>
+$ ./mydiff <file1> <file2>
 ```
 
 #### 3. myhead:
@@ -32,7 +32,7 @@ File that implements a function which copy the first "n" bytes of a file into a 
 
 ##### How does it work?
 ```shell
-$ myhead <N> <file1> <file2>
+$ ./myhead <N> <file1> <file2>
 ```
 
 #### 4. myls:
