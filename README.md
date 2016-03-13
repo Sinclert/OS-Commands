@@ -6,9 +6,19 @@ This repository is a small collection of several Operating System commands, some
 ### What is in the repository?
 
 #### 1. Makefile:
-File to compile the other C files.
+File to compile the other C files and to remove them.
 ```shell
-$ Make
+$ make
+gcc -Wall -o mydiff mydiff.c 
+gcc -Wall -o myhead myhead.c
+gcc -Wall -o myls myls.c 
+$
+```
+
+```shell
+$ make clean 
+rm -f mydiff myhead myls
+$
 ```
 
 #### 2. mydiff:
@@ -34,9 +44,6 @@ File that implements a function already provided in a UNIX operating system: lis
 
 ```shell
 $ myls
-```
-
-```shell
 Makefile
 mydiff.c
 myhead.c
