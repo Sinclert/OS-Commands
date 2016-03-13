@@ -6,7 +6,7 @@ This repository is a small collection of several Operating System commands, some
 ### What is in the repository?
 
 #### 1. Makefile:
-File to compile the other C files and to remove them.
+File to compile the other repository files. It can be also used to remove the compiled ones.
 ```shell
 $ make
 gcc -Wall -o mydiff mydiff.c 
