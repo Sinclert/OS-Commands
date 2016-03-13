@@ -12,13 +12,11 @@ $ make
 gcc -Wall -o mydiff mydiff.c 
 gcc -Wall -o myhead myhead.c
 gcc -Wall -o myls myls.c 
-$
 ```
 
 ```shell
 $ make clean 
 rm -f mydiff myhead myls
-$
 ```
 
 #### 2. mydiff:
