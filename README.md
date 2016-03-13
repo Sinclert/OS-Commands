@@ -36,16 +36,12 @@ $ myhead <N> <file1> <file2>
 ```
 
 #### 4. myls:
-File that implements a function already provided in a UNIX operating system: list the number of files and directories in the current working space.
+File that implements a function already provided in a UNIX operating system: list the number of files and directories in the specified directory.
 
 ##### How does it work?
 
 ```shell
-$ myls
-Makefile
-mydiff.c
-myhead.c
-myls.c
+$ ./myls <directory>
 ```
 ### Requirements:
 These commands are designed to work in a UNIX operating system. The reasons of this requirement are two: First of all a GCC (GNU Compiler-Compiler) is needed to execute the Makefile and compile the files; and secondly, because the System Calls could have a different name in other operating systems. Those which fullfill the requirements are:
