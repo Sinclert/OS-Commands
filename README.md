@@ -43,7 +43,7 @@ File that implements a function already provided in a UNIX operating system: lis
 $ ./myls <directory>
 ```
 ## Requirements:
-These commands are designed to work in a UNIX O.S. (GCC Compiler needed). Those which fullfill the requirements:
+These commands are designed to work in a UNIX O.S. (GCC Compiler needed). Possible options:
 
 <b>A) Mac OSX</b><br>
 <b>B) Any Linux distribution</b>
