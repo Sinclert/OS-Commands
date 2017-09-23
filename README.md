@@ -43,7 +43,7 @@ File that implements a function already provided in a UNIX operating system: lis
 $ ./myls <directory>
 ```
 ## Requirements:
-These commands are designed to work in a UNIX operating system. The reasons of this requirement are two: First of all a GCC (GNU Compiler-Compiler) is needed to execute the Makefile and compile the files; and secondly, because the System Calls could have a different name in other operating systems. Those which fullfill the requirements are:
+These commands are designed to work in a UNIX O.S. (GCC Compiler needed). Those which fullfill the requirements:
 
-<b>A) Mac OSX.</b><br>
-<b>B) Any Linux distribution.</b>
+<b>A) Mac OSX</b><br>
+<b>B) Any Linux distribution</b>
